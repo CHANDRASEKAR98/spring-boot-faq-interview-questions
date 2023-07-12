@@ -17,7 +17,7 @@ Only one annotation is needed. It is **@SpringBootApplication**. This annotation
 ### Q5: You want to add **"Spring Security"** dependency to your application. Where do you add it ?
 You can add/ modify the dependencies on **Pom.xml** file in your project. We just have to copy the dependency detail from [Maven Repository Site](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web/2.2.6.RELEASE), and paste the detail on Pom.xml file.
 
-### Q6: I have an application with a Bean A which is already registered on IOC. The scope of the registered has to change for every sessions. What should I do ?
+### Q6: I have an application with a Bean A which is already registered on IOC. The scope of the registered Bean has to change for every sessions. What should I do ?
 We have to specify the scope of the type **session** above the class whose bean is already registered.
 If the scope of the class is said to be **session**, then new instance of bean is created on spring container on every HTTP session. It is usually used in web application.
 ```
