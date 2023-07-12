@@ -52,3 +52,34 @@ Then add the dependency for Jetty.
 
 ### Q8: What will be the output when two methods of same type / classes have @Primary annotation ?
 **NoUniqueBeanDefinitionException** excpetion is thrown when the application is started. It says that no qualifying bean is found on the <package> and more than one `Primary` annotation is found.
+
+### Q9: What will be the output when application is started in following scenario ?
+#### I have a class `A`. I do not annotate it with @Component but I will autowire it on class `B`.
+The application will not start. **UnsatisfiedDependencyException**  exception is thrown. The nested exception is **NoSuchBeanDefinitionException** which tells that there are no qualifying bean of type 'x.x.A' available and it expects at least 1 bean which qualifies as autowire candidate.
+
+### Q10: What will be the output when application is started in following scenario ?
+#### I have a class `A`. I will annotate it with @Component but I will not annotate with @Autowired on class `B` when injecting.
+**NullPointerException** is thrown because we failed to annotate the bean declaration with @Autowired annotation. @Autowired annotation is used to check and fetch the already registered bean from IOC container.
+Here, the class `A` is registered on IOC by @Component annotation but as we didn't autowire it, the application is not able to find the bean on IOC container. Hence the exception will be thrown on application start.
+
+### Q11: Is it require to mention the starter dependencies version on Pom.xml file ?
+No, it is not mandatory to specify the dependency version on Pom.xml file. The latest version of the starter dependencies are automatically been calculated based on starter parent dependency version.
+
+### Q12: Which JAR dependency is mandatory for running Spring Boot application ?
+`spring-boot-starter-parent` dependency is mandatory for running Spring Boot application. It provides default configurations for our application and a complete dependency tree to quickly build our Spring Boot project.
+
+### Q13: What are the changes you do to change a simple Spring based application to a Spring Boot application ?
+1. Include starter-parent dependency.
+2. Annotate the main class with @SpringBootApplication.
+3. Add the Configuration classes that will be annotated with @Configuration.
+4. Migrate the reource files to a particlar folder.
+5. Migrate property files if required.
+6. If it is a web application, then include ` spring-boot-starter-web` dependency.
+
+### Q14: How many ways are there to create a Spring Boot project ?
+1. via [Spring Initializr Site](https://start.spring.io/)
+2. via Spring Boot Tool Suite (STS)
+3. via Spring Boot CLI
+
+### Q15: What is an entry point of execution in Spring Boot application ?
+Not only for Spring Boot application, for all Java based applications and frameworks, `Main method in Main Class` is the entry point of execution.
