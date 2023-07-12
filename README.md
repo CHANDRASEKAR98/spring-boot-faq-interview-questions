@@ -11,7 +11,7 @@ It is a class level annotation used to register the beans in **IOC Container**. 
 ### Q3: Is @Bean annotation used at class level ? If not, in which level it is used ?
 **@Bean** annotation is not used at class level. It is actually used in method level.
 
-### Q4: How many annotations are reuired to start a simple Spring Boot application ?
+### Q4: How many annotations are required to start a simple Spring Boot application ?
 Only one annotation is needed. It is **@SpringBootApplication**. This annotation contains the features of three other annotations such as @Configuration, @EnableAutoConfiguration, @ComponentScan.
 
 ### Q5: You want to add **"Spring Security"** dependency to your application. Where do you add it ?
